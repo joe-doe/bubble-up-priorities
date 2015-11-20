@@ -7,12 +7,18 @@ app = Flask(__name__,
 
 @app.route('/')
 def hello():
-    return render_template('vertical_tabs.html')
+    return render_template('index.html')
+    # return render_template('vertical_tabs.html')
+
+
+@app.route('/calendar')
+def calendar():
+    return render_template('full_calendar.html')
 
 
 if __name__ == '__main__':
     app.run(threaded=True,
             debug=False,
             use_reloader=False,
-            host='0.0.0.0',
+            host='192.168.56.101',
             port=5001)
