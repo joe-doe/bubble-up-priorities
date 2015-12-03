@@ -1,8 +1,14 @@
 from flask import Flask, render_template
+# from src.configuration.config import Config
+from src.model import db
 
 app = Flask(__name__,
             template_folder='src/view/pages',
             static_folder='src/view/static')
+app.config.from_object('src.configuration.config.Config')
+
+
+db.initialize(app)
 
 
 @app.route('/')
