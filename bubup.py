@@ -1,19 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask
+from src.model.database import Database
+from src.controllers import routes
 
 app = Flask(__name__,
             template_folder='src/view/pages',
             static_folder='src/view/static')
+app.secret_key = 'development key'
 
 
-@app.route('/')
-def hello():
-    return render_template('index.html')
-    # return render_template('vertical_tabs.html')
+mongo_instance = Database()
 
 
-@app.route('/calendar')
-def calendar():
-    return render_template('full_calendar.html')
+routes.initialize(app, mongo_instance)
 
 
 if __name__ == '__main__':

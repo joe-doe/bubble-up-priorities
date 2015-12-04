@@ -1,4 +1,8 @@
 $(function () {
+
+    var ac = $(".side-menu-container ul").find(".active");
+    var tmp =$('.side-body').load(ac.find('a').attr('href'));
+
     $('.navbar-toggle').click(function () {
         $('.navbar-nav').toggleClass('slide-in');
         $('.side-body').toggleClass('body-slide-in');
@@ -22,6 +26,7 @@ $(function () {
     $('.side-menu-container li').click(function(e) {
         $(".side-menu-container ul").find(".active").removeClass("active");
         $(this).addClass("active");
+        var d = $('.side-body').load($(this).find('a').attr('href'));
         e.preventDefault();
     });
 

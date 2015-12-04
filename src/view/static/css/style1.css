@@ -1,0 +1,29 @@
+:focus {
+  outline: none;
+}
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+  /* Slide side body
+  .side-body {
+    margin-left: 5px;
+    margin-top: 70px;
+    position: relative;
+    -moz-animation: bodyslideout 300ms forwards;
+    -o-animation: bodyslideout 300ms forwards;
+    -webkit-animation: bodyslideout 300ms forwards;
+    animation: bodyslideout 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+*/
+
+/* glyphicons */
+.glyphicon {font-size: 2em;}
+.glyphicon-1x{font-size: 1em;}
+.glyphicon-2x{font-size: 2em;}
+.glyphicon-3x{font-size: 3em;}
+.glyphicon-4x{font-size: 4em;}
+.glyphicon-5x{font-size: 5em;}
