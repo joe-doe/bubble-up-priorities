@@ -7,7 +7,7 @@ from flask import (
 def initialize(app, mongo_instance):
     @app.route('/')
     def hello():
-        return render_template('index1.html')
+        return render_template('index2.html')
         # return render_template('vertical_tabs.html')
 
     @app.route('/main')

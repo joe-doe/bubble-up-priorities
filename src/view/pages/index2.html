@@ -16,19 +16,81 @@
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="active"><a href="main"><span class="glyphicon glyphicon-check"></span> Events</a></li>
-            <li><a href="main"><span class="glyphicon glyphicon-bookmark"></span> Promise</a></li>
-            <li><a href="main"><span class="glyphicon glyphicon-cloud"></span> Whishlist</a></li>
-            <li><a href="calendar"><span class="glyphicon glyphicon-calendar"></span>Calendar</a></li>
-            <li><a href="main"><span class="glyphicon glyphicon-tag"></span> Categories</a></li>
+        <div id="MainMenu">
+          <div class="list-group panel">
+            <a href="#events" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">
+                <span class="glyphicon glyphicon-check"></span> Events</a></li>
+            </a>
+            <!-- main menu entry -->
+              <div class="collapse" id="events">
+              <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Subitem 1 <i class="fa fa-caret-down"></i></a>
+              <div class="collapse list-group-submenu" id="SubMenu1">
+                <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 1 a</a>
+                <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 2 b</a>
+                <a href="#SubSubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubSubMenu1">Subitem 3 c <i class="fa fa-caret-down"></i></a>
+                <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+                  <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Sub sub item 1</a>
+                  <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Sub sub item 2</a>
+                </div>
+                <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a>
+              </div>
+              <a href="javascript:;" class="list-group-item">Subitem 2</a>
+              <a href="javascript:;" class="list-group-item">Subitem 3</a>
+            </div>
 
-            <li><a href="main"><span class="glyphicon glyphicon-user"></span> Users</a>
-                <ul class="sidebar-nav">
-                    <li><a href="main"><span class="glyphicon glyphicon-plus"></span> Add</a>
-                </ul>
-            </li>
-        </ul>
+            <!-- main menu entry -->
+            <a href="#promise" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">
+                <span class="glyphicon glyphicon-bookmark"></span> Promise
+            </a>
+            <div class="collapse" id="promise">
+              <a href="" class="list-group-item">Subitem 1</a>
+              <a href="" class="list-group-item">Subitem 2</a>
+              <a href="" class="list-group-item">Subitem 3</a>
+            </div>
+
+            <!-- main menu entry -->
+            <a href="#whishlist" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">
+                <span class="glyphicon glyphicon-cloud"></span> Whishlist
+            </a>
+            <div class="collapse" id="whishlist">
+              <a href="" class="list-group-item">Subitem 1</a>
+              <a href="" class="list-group-item">Subitem 2</a>
+              <a href="" class="list-group-item">Subitem 3</a>
+            </div>
+
+            <!-- main menu entry -->
+            <a href="#calendar" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">
+                <span class="glyphicon glyphicon-calendar"></span> Calendar
+            </a>
+            <div class="collapse" id="calendar">
+              <a href="" class="list-group-item">Subitem 1</a>
+              <a href="" class="list-group-item">Subitem 2</a>
+              <a href="" class="list-group-item">Subitem 3</a>
+            </div>
+
+            <!-- main menu entry -->
+            <a href="#categories" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">
+                <span class="glyphicon glyphicon-tag"></span> Categories
+            </a>
+            <div class="collapse" id="categories">
+              <a href="" class="list-group-item">Subitem 1</a>
+              <a href="" class="list-group-item">Subitem 2</a>
+              <a href="" class="list-group-item">Subitem 3</a>
+            </div>
+
+            <!-- main menu entry -->
+            <a href="#users" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">
+                <span class="glyphicon glyphicon-user"></span> Users
+            </a>
+            <div class="collapse" id="users">
+              <a href="" class="list-group-item">Subitem 1</a>
+              <a href="" class="list-group-item">Subitem 2</a>
+              <a href="" class="list-group-item">Subitem 3</a>
+            </div>
+
+
+          </div>
+        </div>
     </div>
     <!-- /#sidebar-wrapper -->
 
