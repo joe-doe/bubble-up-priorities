@@ -8,4 +8,15 @@ $(function () {
         var d = $('.side-body').load($(this).find('a').attr('href'));
         e.preventDefault();
     });
+
+    $('.first-class-menu-item').click(function(e) {
+       $('.side-body').load($(this).attr('href').slice(6));
+        e.preventDefault();
+    });
+
+    $('.second-class-menu-item').click(function(e) {
+       $('.side-body').load($(this).attr('href'));
+        e.preventDefault();
+    });
+
 });

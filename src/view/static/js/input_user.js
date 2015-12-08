@@ -6,7 +6,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'post',
-            url: '/set_user',
+            url: '/add_user',
             contentType: "application/json",
             data: JSON.stringify(person)
         })
@@ -14,7 +14,7 @@ $(document).ready(function(){
             alert(d);
         })
         .fail(function(a, b, c) {
-            alert( "error "+b+" AND "+c );
+            alert( "error: --- "+b+" ---- <br>details: "+c );
         });
         e.preventDefault();
     });

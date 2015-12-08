@@ -12,8 +12,22 @@ $.getScript('http://arshaw.com/js/fullcalendar-1.6.4/fullcalendar/fullcalendar.m
       right: 'month,agendaWeek,agendaDay'
     },
     firstDay: 1,
-    theme: true,
     editable: true,
+    selectable: true,
+    selectHelper: true,
+    select: function(start, end) {
+    				var title = prompt('Event Title:');
+				    var eventData;
+				    if (title) {
+					    eventData = {
+						    title: title,
+						    start: start,
+						    end: end
+					    };
+					    $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+				    }
+				    $('#calendar').fullCalendar('unselect');
+			},
     events: [
       {
         title: 'All Day Event',
