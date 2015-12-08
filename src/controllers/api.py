@@ -1,6 +1,5 @@
 from flask_restplus import Resource
 from flask import request
-from bson.json_util import dumps
 
 
 def initialize(ns, api, mongo_instance):
@@ -12,7 +11,7 @@ def initialize(ns, api, mongo_instance):
             return mongo_instance.get_mongo_db()
 
         def get(self):
-            return dumps(self.get_db().events.find({}, {'_id': False}))
+            return list(self.get_db().events.find({}, {'_id': False}))
 
         def post(self):
             data = request.get_json()
