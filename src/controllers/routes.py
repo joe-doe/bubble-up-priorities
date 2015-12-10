@@ -69,3 +69,11 @@ def initialize(app, mongo_instance):
         u = db.user.insert(user)
 
         return "{}".format(u)
+
+    ##################
+    # datetimepicker #
+    ##################
+    @app.route('/datetimepicker')
+    def datetimepicker():
+        return render_template('datetimepicker.html')
+

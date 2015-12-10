@@ -1,0 +1,40 @@
+<div class="container">
+    <div class='col-md-2'>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type='text' class="form-control" id="title"/>
+        </div>
+    </div>
+
+    <div class='col-md-3'>
+        <div class="form-group">
+            <label for="from">From:</label>
+            <div class='input-group date' id='date_from'>
+                <input type='text' class="form-control" id="from"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <div class="form-group">
+            <label for="from">To:</label>
+            <div class='input-group date' id='date_to'>
+                <input type='text' class="form-control" id="to" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class='col-md-1'>
+        <button class="get-dates">press me</button>
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/node_modules/moment/moment.js"></script>
+<script type="text/javascript" src="/static/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript" src="/static/js/custom_datetimepicker.js"></script>
