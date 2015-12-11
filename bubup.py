@@ -21,6 +21,10 @@ api.initialize(ns, restplus_api, mongo_instance)
 routes.initialize(app, mongo_instance)
 
 
+@app.errorhandler(500)
+def internal_error(error):
+    return "500 error"+str(error)
+
 if __name__ == '__main__':
     # for x in app.url_map.iter_rules():
     #     print x
