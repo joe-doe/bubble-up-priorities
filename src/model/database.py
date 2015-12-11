@@ -12,9 +12,10 @@ class Database(object):
     def __init__(self):
         # Connection to Mongo DB
         try:
-            self.mongo_client = MongoClient('mongodb://db_user:db_user1@ds029595.mongolab.com:29595/heroku_mongod?authMode=scram-sha1')
+            self.mongo_client = MongoClient('mongodb://db_user:db_user1@ds027345.mongolab.com:'
+                                            '27345/heroku_mongodb?authMode=scram-sha1')
             # self.mongo_client = MongoClient('mongodb://localhost:27017/')
-            self.mongo_db = self.mongo_client.heroku_mongod
+            self.mongo_db = self.mongo_client.heroku_mongodb
             print "Connected successfully!!!"
         except errors.ConnectionFailure, e:
             print "Could not connect to MongoDB: %s" % e
