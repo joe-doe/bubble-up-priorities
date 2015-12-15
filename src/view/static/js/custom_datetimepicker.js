@@ -11,8 +11,11 @@
         });
 
         $(".get-dates").click(function(e){
+        var event_info = $('#form').serializeJSON();
+
         var new_event = {
-            title: "new one",
+            title: event_info.name,
+            description: event_info.description,
             start: $('#date_from').data("DateTimePicker").date(),
             end: $('#date_to').data("DateTimePicker").date(),
             allDay: false
