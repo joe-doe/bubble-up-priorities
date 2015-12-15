@@ -11,12 +11,7 @@ def initialize(ns, api, mongo_instance):
     class Events(Resource):
 
         def get(self):
-            f = ()
-            try:
-                f = list(get_db().events.find({}, {'_id': False}))
-            except Exception as ex:
-                f = str(ex)
-            return f
+            return list(get_db().events.find({}, {'_id': False}))
 
         def post(self):
             data = request.get_json()
