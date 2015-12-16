@@ -32,7 +32,7 @@
             $('.side-body').load('/events');
         })
         .fail(function(a, b, c) {
-            alert( "error: --- "+b+" ---- \ndetails: "+c );
+            alert( "error: "+b+"\ndetails: "+c );
         });
         e.preventDefault();
         });

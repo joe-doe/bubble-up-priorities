@@ -9,11 +9,21 @@
           <div class="list-group panel">
 
             <!-- main menu entry -->
+            <a href="#menu-calendar" class="list-group-item list-group-item-info first-class-menu-item" data-toggle="collapse" data-parent="#MainMenu">
+                <span class="glyphicon glyphicon-calendar"></span> Calendar
+            </a>
+            <div class="collapse" id="menu-calendar">
+              <!--<a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>-->
+              <!--<a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>-->
+              <!--<a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>-->
+            </div>
+
+            <!-- main menu entry -->
             <a href="#menu-events" class="list-group-item list-group-item-info first-class-menu-item" data-toggle="collapse" data-parent="#MainMenu">
                 <span class="glyphicon glyphicon-check"></span> Events
             </a>
             <div class="collapse" id="menu-events">
-              <a href="datetimepicker" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
+              <a href="event_add" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
               <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
               <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
 
@@ -38,9 +48,9 @@
                 <span class="glyphicon glyphicon-bookmark"></span> Promises
             </a>
             <div class="collapse" id="menu-promises">
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
+              <a href="promise_add" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
+              <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
+              <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
             </div>
 
             <!-- main menu entry -->
@@ -48,19 +58,9 @@
                 <span class="glyphicon glyphicon-cloud"></span> Whishlist
             </a>
             <div class="collapse" id="menu-whishlist">
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
-            </div>
-
-            <!-- main menu entry -->
-            <a href="#menu-calendar" class="list-group-item list-group-item-info first-class-menu-item" data-toggle="collapse" data-parent="#MainMenu">
-                <span class="glyphicon glyphicon-calendar"></span> Calendar
-            </a>
-            <div class="collapse" id="menu-calendar">
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
+              <a href="whishlist_add" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
+              <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
+              <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
             </div>
 
             <!-- main menu entry -->
@@ -68,9 +68,9 @@
                 <span class="glyphicon glyphicon-tag"></span> Categories
             </a>
             <div class="collapse" id="menu-categories">
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
+              <a href="category_add" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
+              <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
+              <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
             </div>
 
             <!-- main menu entry -->
@@ -78,9 +78,9 @@
                 <span class="glyphicon glyphicon-user"></span> Users
             </a>
             <div class="collapse" id="menu-users">
-              <a href="add_user_form" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
+              <a href="user_add" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-plus glyphicon-2x"></span> Add</a>
+              <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-remove glyphicon-2x"></span> Remove</a>
+              <a href="" class="list-group-item second-class-menu-item"><span class="glyphicon glyphicon-pencil glyphicon-2x"></span> Edit </a>
             </div>
 
 

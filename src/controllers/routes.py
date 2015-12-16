@@ -21,6 +21,10 @@ def initialize(app, mongo_instance):
     def events():
         return render_template('events.html')
 
+    @app.route('/event_add')
+    def event_add():
+        return render_template('event_add.html')
+
     ############
     # promises #
     ############
@@ -28,12 +32,20 @@ def initialize(app, mongo_instance):
     def promises():
         return render_template('promises.html')
 
+    @app.route('/promise_add')
+    def promise_add():
+        return render_template('promise_add.html')
+
     #############
     # whishlist #
     #############
     @app.route('/whishlist')
     def whishlist():
         return render_template('whishlist.html')
+
+    @app.route('/whishlist_add')
+    def whishlist_add():
+        return render_template('whishlist_add.html')
 
     ############
     # calendar #
@@ -49,6 +61,9 @@ def initialize(app, mongo_instance):
     def categories():
         return render_template('categories.html')
 
+    @app.route('/category_add')
+    def category_add():
+        return render_template('category_add.html')
 
     #########
     # users #
@@ -57,9 +72,9 @@ def initialize(app, mongo_instance):
     def users():
         return render_template('users.html')
 
-    @app.route('/add_user_form')
-    def add_user_form():
-        return render_template('add_user_form.html')
+    @app.route('/user_add')
+    def user_add():
+        return render_template('user_add.html')
 
     @app.route('/add_user', methods=['POST'])
     def add_user():
@@ -70,10 +85,4 @@ def initialize(app, mongo_instance):
 
         return "{}".format(u)
 
-    ##################
-    # datetimepicker #
-    ##################
-    @app.route('/datetimepicker')
-    def datetimepicker():
-        return render_template('datetimepicker.html')
 

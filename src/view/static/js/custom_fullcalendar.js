@@ -3,6 +3,7 @@ function new_fullCalendar(data_source) {
         $.getScript('/static/node_modules/moment/moment.js', function(){
             $.getScript('/static/node_modules/fullcalendar/dist/fullcalendar.min.js', function(){
                 $('.main-body-container').fullCalendar({
+                    height: 750,
                     eventSources: [
                         {
                             url: data_source
