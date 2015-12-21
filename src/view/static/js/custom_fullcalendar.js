@@ -16,22 +16,56 @@ function new_fullCalendar(data_source) {
                     },
                     selectable: true,
                     selectHelper: true,
-                    select: function(start, end) {
-                        var title = prompt('Event Title:');
-                        var eventData;
-                        if (title) {
-                            eventData = {
-                                title: title,
-                                start: start,
-                                end: end
-                            };
-                            $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-                        }
-                        $('#calendar').fullCalendar('unselect');
-                    },
                     editable: true,
-                    eventLimit: true, // allow "more" link when too many events
+                    eventLimit: true, // allow "more" link when too many events,
+
+                    select: function(start, end, allDay) {
+                        var title = prompt('Event Title: ');
+
+                        if (title) {
+                            var new_event = {
+                                        title: title,
+                                        start: start.format(),
+                                        end: end.format(),
+                                        allDay: true
+                            }
+                            console.log(new_event);
+
+                            $('.main-body-container').fullCalendar('renderEvent',
+                                new_event,
+                                true // make the event "stick"
+                            );
+                            persist_event(new_event);
+                        }
+                        calendar.fullCalendar('unselect');
+                    },
+                    eventDrop: function(event, delta, revertFunc) {
+                                    if (!confirm(event.title + " was dropped on " + event.start.format()+"\nAre you sure about this change?")) {
+                                        revertFunc();
+                                    }
+                                    persist_event(event);
+                   }
                 });
             });
         });
+
+        function persist_event(new_event){
+            /**
+             * ajax call to store event in DB
+            */
+            $.ajax({
+                type: 'post',
+                url: '/api/events',
+                contentType: "application/json",
+                data: JSON.stringify(new_event)
+            })
+            .success(function(d) {
+                alert("New event registered successfully");
+            })
+            .fail(function(a, b, c) {
+                alert( "error: "+b+"\ndetails: "+c );
+            });
+
+        }
 }
+//@ sourceURL=/static/js/custom_fullcalendar.js
