@@ -32,34 +32,74 @@ function new_fullCalendar(data_source) {
                             console.log(new_event);
 
                             $('.main-body-container').fullCalendar('renderEvent',
-                                new_event,
-                                true // make the event "stick"
-                            );
-                            persist_event(new_event);
+                                                                    new_event,
+                                                                    true // make the event "stick"
+                                                                );
+                            insert_event(new_event);
                         }
-                        calendar.fullCalendar('unselect');
+                        $('.main-body-container').fullCalendar('unselect');
                     },
                     eventDrop: function(event, delta, revertFunc) {
                                     if (!confirm(event.title + " was dropped on " + event.start.format()+"\nAre you sure about this change?")) {
                                         revertFunc();
                                     }
-                                    persist_event(event);
+                                    update_event(event);
+                                    console.log(event);
+                                    console.log(delta);
                    }
                 });
             });
         });
 
-        function persist_event(new_event){
+        function insert_event(new_event){
             /**
              * ajax call to store event in DB
             */
             $.ajax({
                 type: 'post',
-                url: '/api/events',
+                url: '/api/events/add',
                 contentType: "application/json",
                 data: JSON.stringify(new_event)
             })
-            .success(function(d) {
+            .done(function(d) {
+                alert("New event registered successfully");
+            })
+            .fail(function(a, b, c) {
+                alert( "error: "+b+"\ndetails: "+c );
+            });
+
+        }
+
+        function update_event(new_event){
+            /**
+             * ajax call to store event in DB
+            */
+            $.ajax({
+                type: 'post',
+                url: '/api/events/update',
+                contentType: "application/json",
+                data: JSON.stringify(new_event)
+            })
+            .done(function(d) {
+                alert("New event registered successfully");
+            })
+            .fail(function(a, b, c) {
+                alert( "error: "+b+"\ndetails: "+c );
+            });
+
+        }
+
+        function delete_event(event){
+            /**
+             * ajax call to store event in DB
+            */
+            $.ajax({
+                type: 'post',
+                url: '/api/events/delete',
+                contentType: "application/json",
+                data: JSON.stringify(new_event)
+            })
+            .done(function(d) {
                 alert("New event registered successfully");
             })
             .fail(function(a, b, c) {
@@ -68,4 +108,4 @@ function new_fullCalendar(data_source) {
 
         }
 }
-//@ sourceURL=/static/js/custom_fullcalendar.js
+//@ sourceURL=custom_fullcalendar.js
