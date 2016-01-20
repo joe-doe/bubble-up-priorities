@@ -20,24 +20,40 @@ function new_fullCalendar(data_source) {
                     eventLimit: true, // allow "more" link when too many events,
 
                     select: function(start, end, allDay) {
-                        var title = prompt('Event Title: ');
+//                        var title = prompt('Event Title: ');
+//
+//                        if (title) {
+//                            var new_event = {
+//                                        title: title,
+//                                        start: start.format(),
+//                                        end: end.format(),
+//                                        allDay: true
+//                            }
+//                            console.log(new_event);
+                            $.getScript('/static/node_modules/jquery-serializejson/jquery.serializejson.min.js');
+                            $.getScript('/static/node_modules/moment/moment.js');
+                            $.getScript('/static/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
+                            $.getScript('/static/js/custom_datetimepicker.js');
 
-                        if (title) {
-                            var new_event = {
-                                        title: title,
-                                        start: start.format(),
-                                        end: end.format(),
-                                        allDay: true
-                            }
-                            console.log(new_event);
+                            $( "#event-input-form" ).modal('show');
+                            $(".get-dates").click(function(e){
+                                var event_info = $('#input-form').serializeJSON();
+                                var new_event = {
+                                    title: event_info.name,
+                                    description: event_info.description,
+                                    start: $('#date_from').data("DateTimePicker").date(),
+                                    end: $('#date_to').data("DateTimePicker").date(),
+                                    allDay: event_info.all_day_event == undefined ? false:true
+                                }
+                                $('.main-body-container').fullCalendar('renderEvent',
+                                                                        new_event,
+                                                                        true // make the event "stick"
+                                                                    );
+                                insert_event(new_event);
+                                $('.main-body-container').fullCalendar('unselect');
 
-                            $('.main-body-container').fullCalendar('renderEvent',
-                                                                    new_event,
-                                                                    true // make the event "stick"
-                                                                );
-                            insert_event(new_event);
-                        }
-                        $('.main-body-container').fullCalendar('unselect');
+                                e.preventDefault();
+                            });
                     },
                     eventDrop: function(event, delta, revertFunc) {
                                     if (!confirm(event.title + " was dropped on " + event.start.format()+"\nAre you sure about this change?")) {

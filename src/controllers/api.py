@@ -43,7 +43,7 @@ def initialize(ns, api, mongo_instance):
             else:
                 return_value = {"status": "invalid action"}
 
-            return "data: {}".format(return_value )
+            return "data: {}".format(return_value)
 
     @ns.route('/promises')
     class Promises(Resource):

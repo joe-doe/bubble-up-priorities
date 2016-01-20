@@ -6,4 +6,85 @@
     </div>
 </div>
 
+
+<!-- Modal Input -->
+<div class="modal fade" id="event-input-form" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Events
+                </h4>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+                <form role="form" id="input-form">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Register a new event</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Event name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <input class="form-control" id="description" name="description" type="text"
+                                       placeholder="Event description">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="from">From:</label>
+                                <div class='input-group date' id='date_from'>
+                                    <input type='text' class="form-control" id="from"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="to">To:</label>
+                                <div class='input-group date' id='date_to'>
+                                    <input type='text' class="form-control" id="to"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="all_day_event"/> All day event
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="submit" class="btn btn-default btn-primary btn-lg get-dates" id="register_event">
+                    Register
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="/static/js/main-body.js"></script>

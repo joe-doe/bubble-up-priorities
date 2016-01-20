@@ -10,30 +10,30 @@
             $('#date_from').data("DateTimePicker").maxDate(e.date);
         });
 
-        $(".get-dates").click(function(e){
-        var event_info = $('#form').serializeJSON();
-        var new_event = {
-            title: event_info.name,
-            description: event_info.description,
-            start: $('#date_from').data("DateTimePicker").date(),
-            end: $('#date_to').data("DateTimePicker").date(),
-            allDay: event_info.all_day_event == undefined ? false:true
-        }
-
-        $.ajax({
-            type: 'post',
-            url: '/api/events',
-            contentType: "application/json",
-            data: JSON.stringify(new_event)
-        })
-        .success(function(d) {
-            alert("New event registered successfully");
-            // Go backl to events view
-            $('.side-body').load('/events');
-        })
-        .fail(function(a, b, c) {
-            alert( "error: "+b+"\ndetails: "+c );
-        });
-        e.preventDefault();
-        });
+//        $(".get-dates").click(function(e){
+//        var event_info = $('#form').serializeJSON();
+//        var new_event = {
+//            title: event_info.name,
+//            description: event_info.description,
+//            start: $('#date_from').data("DateTimePicker").date(),
+//            end: $('#date_to').data("DateTimePicker").date(),
+//            allDay: event_info.all_day_event == undefined ? false:true
+//        }
+//
+//        $.ajax({
+//            type: 'post',
+//            url: '/api/events',
+//            contentType: "application/json",
+//            data: JSON.stringify(new_event)
+//        })
+//        .success(function(d) {
+//            alert("New event registered successfully");
+//            // Go backl to events view
+//            $('.side-body').load('/events');
+//        })
+//        .fail(function(a, b, c) {
+//            alert( "error: "+b+"\ndetails: "+c );
+//        });
+//        e.preventDefault();
+//        });
     });
