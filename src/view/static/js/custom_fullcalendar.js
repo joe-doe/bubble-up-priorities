@@ -35,7 +35,15 @@ function new_fullCalendar(data_source) {
                             $.getScript('/static/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
                             $.getScript('/static/js/custom_datetimepicker.js');
 
+                            // Show modal window with event registration form
                             $( "#event-input-form" ).modal('show');
+
+                            // For modal window, on close, clear the form
+                            $( "#event-input-form" ).on('hidden.bs.modal', function (event){
+                                $(this).find('form')[0].reset();
+                            });
+
+                            // Upon click on registration button, register the new event
                             $(".get-dates").click(function(e){
                                 var event_info = $('#input-form').serializeJSON();
                                 var new_event = {
@@ -51,7 +59,7 @@ function new_fullCalendar(data_source) {
                                                                     );
                                 insert_event(new_event);
                                 $('.main-body-container').fullCalendar('unselect');
-
+                                $( "#event-input-form" ).modal('hide');
                                 e.preventDefault();
                             });
                     },
@@ -97,7 +105,7 @@ function new_fullCalendar(data_source) {
                 data: JSON.stringify(new_event)
             })
             .done(function(d) {
-                alert("New event registered successfully");
+                alert("New event updated successfully");
             })
             .fail(function(a, b, c) {
                 alert( "error: "+b+"\ndetails: "+c );
