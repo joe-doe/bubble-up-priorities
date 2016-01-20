@@ -3,21 +3,22 @@ from pymongo import (
     errors
 )
 
-
 class Database(object):
 
     mongo_client = None
     mongo_db = None
 
-    def __init__(self):
+    def __init__(self, app):
         # Connection to Mongo DB
         try:
-            self.mongo_client = MongoClient('mongodb://db_user:db_user1@ds027345.mongolab.com:'
-                                            '27345/heroku_mongodb?authMode=scram-sha1')
-            self.mongo_db = self.mongo_client.heroku_mongodb
+            if app.config.get('RUN_LOCAL'):
+                self.mongo_client = MongoClient('mongodb://localhost:27017/')
+                self.mongo_db = self.mongo_client.mydb
+            else:
+                self.mongo_client = MongoClient('mongodb://db_user:db_user1@ds027345.mongolab.com:'
+                                                '27345/heroku_mongodb?authMode=scram-sha1')
+                self.mongo_db = self.mongo_client.heroku_mongodb
 
-            #self.mongo_client = MongoClient('mongodb://localhost:27017/')
-            #self.mongo_db = self.mongo_client.mydb
 
             print "Connected successfully!!!"
         except errors.ConnectionFailure, e:

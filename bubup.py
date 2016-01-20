@@ -9,13 +9,16 @@ from src.controllers import (
 app = Flask(__name__,
             template_folder='src/view/pages',
             static_folder='src/view/static')
-app.secret_key = 'development key'
+
+app.config.from_object('config')
+
+
 restplus_api = Api(app,
                    version='1.0',
                    title='bubup !'
                    )
 ns = restplus_api.namespace(name='api', description='WOW bubup !')
-mongo_instance = Database()
+mongo_instance = Database(app)
 
 api.initialize(ns, restplus_api, mongo_instance)
 routes.initialize(app, mongo_instance)

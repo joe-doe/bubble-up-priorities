@@ -1,2 +1,2 @@
-secret_key = 'development key'
-run_local = True
+SECRET_KEY = 'development key'
+RUN_LOCAL = False
