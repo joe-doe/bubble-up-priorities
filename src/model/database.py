@@ -3,13 +3,14 @@ from pymongo import (
     errors
 )
 
+
 class Database(object):
 
     mongo_client = None
     mongo_db = None
 
     def __init__(self, app):
-        # Connection to Mongo DB
+        # Connection to MongoDB
         try:
             self.mongo_client = MongoClient(app.config.get('MONGODB_URI'))
             self.mongo_db = self.mongo_client.heroku_mongodb

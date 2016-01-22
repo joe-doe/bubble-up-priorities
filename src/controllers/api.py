@@ -2,6 +2,7 @@ from flask_restplus import Resource
 from flask import request
 from bson.objectid import ObjectId
 
+
 def initialize(ns, api, mongo_instance):
 
     def get_db():

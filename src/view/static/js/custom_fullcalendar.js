@@ -32,6 +32,7 @@ function new_fullCalendar(data_source) {
                             // and clear the form
                             $("#event-input-form").on('hidden.bs.modal', function (){
                                 $(".get-dates").unbind();
+                                $(this).unbind();
                                 $(this).find('form')[0].reset();
                             });
 
