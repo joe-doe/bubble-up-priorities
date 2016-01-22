@@ -10,4 +10,5 @@ eggs/
 venv/
 .idea/
 
-/config.py
+/local_config.py
+

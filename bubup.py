@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_restplus import Api
+import os.path
+
 from src.model.database import Database
 from src.controllers import (
     routes,
@@ -10,8 +12,8 @@ app = Flask(__name__,
             template_folder='src/view/pages',
             static_folder='src/view/static')
 
-app.config.from_object('config')
-
+config_module = 'local_config' if os.path.isfile('local_config.py') else 'config'
+app.config.from_object(config_module)
 
 restplus_api = Api(app,
                    version='1.0',
