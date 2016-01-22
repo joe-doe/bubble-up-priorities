@@ -24,16 +24,33 @@ function new_fullCalendar(data_source) {
                             $.getScript('/static/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', function(){
                                 $('#date_from').datetimepicker();
                                 $('#date_from').data("DateTimePicker").defaultDate(from_that);
-                                $('#date_to').datetimepicker();
+                                $('#date_to').datetimepicker({
+                                    useCurrent: false //Important! See issue #1075
+                                });
                                 $('#date_to').data("DateTimePicker").defaultDate(to_that);
+
+                                $('#date_from').on("dp.change", function (e) {
+                                    $('#date_to').data("DateTimePicker").minDate(e.date);
+                                });
+
+                                $('#date_to').on("dp.change", function (e) {
+                                    $('#date_from').data("DateTimePicker").maxDate(e.date);
+                                });
                             });
+
                             // Show modal window with event registration form
                             $( "#event-input-form" ).modal();
 
-                            // For modal window, on close, unregister click handler for registration button
-                            // and clear the form
+                            // For modal window, on close:
+                            // 1. unregister click handler for registration button
+                            // 2. unregister click handler for date from button
+                            // 3. unregister click handler for date to button
+                            // 4. unregister on handler modal window
+                            // 5. clear the form
                             $("#event-input-form").on('hidden.bs.modal', function (){
                                 $(".get-dates").unbind();
+                                $('#date_from').unbind();
+                                $('#date_to').unbind();
                                 $(this).unbind();
                                 $(this).find('form')[0].reset();
                             });
@@ -54,7 +71,6 @@ function new_fullCalendar(data_source) {
                                                                     );
                                 $('.main-body-container').fullCalendar('unselect');
                                 insert_event(new_event);
-//                                $( "#event-input-form" ).modal();
                                 e.preventDefault();
                             });
                     },
