@@ -9,4 +9,5 @@ eggs/
 
 venv/
 .idea/
-config.py
+
+/config.py

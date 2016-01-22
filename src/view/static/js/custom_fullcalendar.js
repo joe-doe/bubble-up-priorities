@@ -20,7 +20,6 @@ function new_fullCalendar(data_source) {
                     eventLimit: true, // allow "more" link when too many events,
 
                     select: function(from_that, to_that, allDay) {
-//                            $.getScript('/static/js/custom_datetimepicker.js');
                             $.getScript('/static/node_modules/jquery-serializejson/jquery.serializejson.min.js');
                             $.getScript('/static/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', function(){
                                 $('#date_from').datetimepicker();
@@ -29,7 +28,8 @@ function new_fullCalendar(data_source) {
                             // Show modal window with event registration form
                             $( "#event-input-form" ).modal();
 
-                            // For modal window, on close, clear the form
+                            // For modal window, on close, unregister click handler for registration button
+                            // and clear the form
                             $("#event-input-form").on('hidden.bs.modal', function (){
                                 $(".get-dates").unbind();
                                 $(this).find('form')[0].reset();
