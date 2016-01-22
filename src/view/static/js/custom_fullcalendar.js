@@ -19,27 +19,19 @@ function new_fullCalendar(data_source) {
                     editable: true,
                     eventLimit: true, // allow "more" link when too many events,
 
-                    select: function(start, end, allDay) {
-//                        var title = prompt('Event Title: ');
-//
-//                        if (title) {
-//                            var new_event = {
-//                                        title: title,
-//                                        start: start.format(),
-//                                        end: end.format(),
-//                                        allDay: true
-//                            }
-//                            console.log(new_event);
+                    select: function(from_that, to_that, allDay) {
+//                            $.getScript('/static/js/custom_datetimepicker.js');
                             $.getScript('/static/node_modules/jquery-serializejson/jquery.serializejson.min.js');
-                            $.getScript('/static/node_modules/moment/moment.js');
-                            $.getScript('/static/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
-                            $.getScript('/static/js/custom_datetimepicker.js');
-
+                            $.getScript('/static/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', function(){
+                                $('#date_from').datetimepicker();
+                                $('#date_to').datetimepicker();
+                            });
                             // Show modal window with event registration form
-                            $( "#event-input-form" ).modal('show');
+                            $( "#event-input-form" ).modal();
 
                             // For modal window, on close, clear the form
-                            $( "#event-input-form" ).on('hidden.bs.modal', function (event){
+                            $("#event-input-form").on('hidden.bs.modal', function (){
+                                $(".get-dates").unbind();
                                 $(this).find('form')[0].reset();
                             });
 
@@ -57,9 +49,9 @@ function new_fullCalendar(data_source) {
                                                                         new_event,
                                                                         true // make the event "stick"
                                                                     );
-                                insert_event(new_event);
                                 $('.main-body-container').fullCalendar('unselect');
-                                $( "#event-input-form" ).modal('hide');
+                                insert_event(new_event);
+//                                $( "#event-input-form" ).modal();
                                 e.preventDefault();
                             });
                     },
@@ -124,7 +116,7 @@ function new_fullCalendar(data_source) {
                 data: JSON.stringify(new_event)
             })
             .done(function(d) {
-                alert("New event registered successfully");
+                alert("New event deleted successfully");
             })
             .fail(function(a, b, c) {
                 alert( "error: "+b+"\ndetails: "+c );

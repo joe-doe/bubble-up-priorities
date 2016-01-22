@@ -1,14 +1,14 @@
     $(function () {
-        $('#date_from').datetimepicker();
-        $('#date_to').datetimepicker({
-            useCurrent: false //Important! See issue #1075
-        });
-        $("#date_from").on("dp.change", function (e) {
-            $('#date_to').data("DateTimePicker").minDate(e.date);
-        });
-        $("#date_to").on("dp.change", function (e) {
-            $('#date_from').data("DateTimePicker").maxDate(e.date);
-        });
+//        $('#date_from').datetimepicker();
+//        $('#date_to').datetimepicker({
+//            useCurrent: false //Important! See issue #1075
+//        });
+//        $("#date_from").on("dp.change", function (e) {
+//            $('#date_to').data("DateTimePicker").minDate(e.date);
+//        });
+//        $("#date_to").on("dp.change", function (e) {
+//            $('#date_from').data("DateTimePicker").maxDate(e.date);
+//        });
 
 //        $(".get-dates").click(function(e){
 //        var event_info = $('#form').serializeJSON();
