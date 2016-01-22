@@ -23,7 +23,9 @@ function new_fullCalendar(data_source) {
                             $.getScript('/static/node_modules/jquery-serializejson/jquery.serializejson.min.js');
                             $.getScript('/static/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', function(){
                                 $('#date_from').datetimepicker();
+                                $('#date_from').data("DateTimePicker").defaultDate(from_that);
                                 $('#date_to').datetimepicker();
+                                $('#date_to').data("DateTimePicker").defaultDate(to_that);
                             });
                             // Show modal window with event registration form
                             $( "#event-input-form" ).modal();
@@ -63,7 +65,17 @@ function new_fullCalendar(data_source) {
                                     update_event(event);
                                     console.log(event);
                                     console.log(delta);
-                   }
+                     }
+//                   },
+//                   eventClick: function(calEvent, jsEvent, view) {
+//                        alert('Event: ' + calEvent.title);
+//                        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+//                        alert('View: ' + view.name);
+//
+//                        // change the border color just for fun
+//                        $(this).css('border-color', 'red');
+//
+//                    }
                 });
             });
         });
